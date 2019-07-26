@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+echo 'how many user bill would you like to pasre?';
+read number
+
+echo '** Creating csv sheet **';
+ruby csv.rb
+
+for num in $(eval echo "{1..$number}")
+do
+  echo $num
+  echo '** Filling form and fetching results **';
+  ruby jvvnl.rb $num
+done
+
+echo '** Please check your jvvnl.csv file for data **';
