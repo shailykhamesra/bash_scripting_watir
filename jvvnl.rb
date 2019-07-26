@@ -9,7 +9,7 @@ form.radio(name: 'service',:value => 'BILL').set
 form.text_field(name: 'txtCustomerID').set((210742023960+ARGV.fetch(0).to_i).to_s)
 form.text_field(name: 'txtEmail').set(Faker::Internet.email)
 form.button(class_name: 'subtn').click
-# browser.screenshot.save ("preview_browser#{ARGV.fetch(0).to_i}.png")
+browser.screenshot.save ("preview_browser#{ARGV.fetch(0).to_i}.png")
 if browser.table.id == 'tb_confirm'
   amount_payable = browser.tr(text: /Amount Payable/).td(:index => 1).text
   k_number = browser.tr(text: /K Number/).td(:index => 1).text
